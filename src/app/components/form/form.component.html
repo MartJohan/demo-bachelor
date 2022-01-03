@@ -1,0 +1,33 @@
+<form #configurationForm="ngForm" *ngIf="!isLoading">
+    <div class="m-1 p-3">
+        <h3 class="text-center">Optional parameters:</h3>
+        <br>
+        <div class="m-3">
+            <label for="Amount">Amount of questions:</label>
+            <input id="Amount" name="Amount" type="number" class="form-control" ngModel #Amount="ngModel" (change)="onChange(configurationForm)">
+        </div>
+        <div class="m-3">
+            <label for="Category">Category:</label> 
+            <select id="Category" name="Category" class="form-control" ngModel #Category="ngModel" (change)="onChange(configurationForm)">
+                <option selected disabled>Select category...</option>
+                <option *ngFor="let item of categories" value="{{item.id}}">{{item.name}}</option>
+            </select>
+        </div>
+        <div class="m-3">
+            <label for="Difficulty">Difficulty</label>
+            <select id="Difficulty" name="Difficulty" class="form-control" ngModel #Difficulty="ngModel" (change)="onChange(configurationForm)">
+                <option>Easy</option>
+                <option>Medium</option>
+                <option>Hard</option>
+            </select>
+        </div>
+        <div class="m-3">
+            <label for="Type">Type of questions</label>
+            <select id="Type" name="Type" class="form-control" ngModel #Type="ngModel" (change)="onChange(configurationForm)">
+                <option selected disabled>Select type...</option>
+                <option>True / False</option>
+                <option>Multiple choice</option>
+            </select>
+        </div>
+    </div>
+</form>

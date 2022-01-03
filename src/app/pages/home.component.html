@@ -1,0 +1,19 @@
+<h1 class="text-center p-3 m-3">Home</h1>
+
+<section class="border w-25 mx-auto">
+    <app-form></app-form>
+</section>
+
+<div class="d-flex justify-content-center">
+    <button class="btn btn-outline-primary p-2 m-3" (click)="handleGetQuestions()">Get questions</button>
+    <button class="btn btn-outline-primary p-2 m-3" (click)="handleShowQuestions()">Show questions</button>
+</div>
+
+<section>
+    <p class="text-center" *ngIf="isLoading">Loading...</p>
+    <div *ngIf="showQuestions">
+        <app-list [questions]="questions"></app-list>
+    </div>
+</section>
+
+
