@@ -13,9 +13,8 @@ export class ApiService {
   * IMPORTANT
   * Gotten from /src/app/enviroments/enviroment.ts when developing on localhost
   * Gotten from /src/app/enviroments.prod.ts when running in prod (on cloud)
-  * This means that you have to switch up the urls
+  * This means that you have to have one url for localhost and one url for prod.
   */
-// Gotten from /src/app/enviroments
   private apiUrl = environment.api_url;
   private apiCategory = environment.api_category;
   
@@ -31,12 +30,17 @@ export class ApiService {
    * @param configurations Consists of a string of query parameters i.e amount=10&category=movies
    */
   async getQuestions() : Promise<question[]> {
-    if(this._configString.length != 0) {
-      const { results } = await fetch(`${this.apiUrl + this._configString}`).then(response => response.json());
-      return results;
-    } else {
-      const { results } = await fetch(`${this.apiUrl}amount=10`).then(response => response.json());
-      return results;
+    try {
+      if(this._configString.length != 0) {
+        const { results } = await fetch(`${this.apiUrl + this._configString}`).then(response => response.json());
+        return results;
+      } else {
+        const { results } = await fetch(`${this.apiUrl}amount=10`).then(response => response.json());
+        return results;
+      }
+    } catch (err) {
+      console.log(`Error when getting questions ${err}`);
+      return [];
     }
   }
   //Using RXjs library
@@ -48,7 +52,11 @@ export class ApiService {
   }
  
   async getCategories() : Promise<category[]> {
-    const { trivia_categories } = await fetch(`${this.apiCategory}`).then(response => response.json());
+    const { trivia_categories } = await fetch(`${this.apiCategory}`)
+    .then(response => response.json()).catch(error => {
+      console.log(`Error when fetching categories ${error}`);
+      return [];
+    });
     return trivia_categories;
   }
 }

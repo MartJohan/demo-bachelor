@@ -25,13 +25,16 @@ export class HomeComponent {
     // });
 
     // Using fetch api
-    this.apiService.getQuestions().then((response) => {
+    this.apiService.getQuestions().then(response => {
       this.questions = response;
       this.isLoading = false;
       this.showQuestions = true;
     })
   }
 
+  /**
+   * Simple toggle function for viewing questions or not whenever a button is clicked
+   */
   handleShowQuestions() : void {  
     this.showQuestions = !this.showQuestions;
   }

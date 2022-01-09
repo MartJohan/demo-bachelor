@@ -16,4 +16,9 @@ export class ListComponent implements OnInit {
     // console.log(this.questions);
   }
 
+  
+  // Very important!
+  // If the input ever changes this will update the component automatically
+  ngOnChanges() {}
+
 }

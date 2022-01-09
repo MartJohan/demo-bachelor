@@ -13,13 +13,12 @@ export class ListItemComponent implements OnInit {
   @Input() question : question = {} as question;
   public answers : string[] = [];
 
-  constructor() { }
-
   async ngOnInit(): Promise<void> {
     await this.arrangeAnswers();
   }
 
-  // If the input ever changesm this will handle the change
+  // Very important!
+  // If the input ever changes this will update the component automatically
   ngOnChanges() { }
 
   /**

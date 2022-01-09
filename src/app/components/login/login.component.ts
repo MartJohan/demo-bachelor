@@ -6,14 +6,16 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
   constructor(private readonly router: Router) { }
 
-  ngOnInit(): void {
-  }
-
+  /**
+   * handles users request to login
+   * 
+   * Note: There should of course be some kind of validation here to check the input of the user, but it is not needed for this example
+   */
   handleLoginClick() {
-    // This is bad, do not make it like this
+    // This is bad, do not make login like this
     sessionStorage.setItem("loggedIn", "yes");
     this.router.navigate(['/home']);
   }
