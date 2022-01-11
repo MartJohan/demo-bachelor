@@ -10,6 +10,7 @@ Generate a component
 ```
 ng generate component < name of component >
 ```
+
 This creates a folder containing the component, if you only want the three / four files directly created into your folder type this:
 
 ```
@@ -21,13 +22,14 @@ This command can easily be used for services and guards among others to make it 
 ```
 ng g component / guard / service < name of component >
 ```
+
 <br/>
 
 # What are services?
 
 Serviecs are files used mainly for maintaining state and containing logic that is used widely by the application. In this repo the only service is for the api and guard, but in other applications services often should include something for security, user state, guards etc.
 
-<br> 
+<br>
 
 # Underrated practices
 
@@ -35,6 +37,7 @@ Serviecs are files used mainly for maintaining state and containing logic that i
 - classes
 - Helper methods
 - Focus on generic functions, write once use everywhere
+- Code warmup, start your day with 30 - 60 minutes with a task from https://edabit.com/
 
 # Further research
 
@@ -57,6 +60,3 @@ https://www.youtube.com/watch?v=nViEqpgwxHE&ab_channel=BenAwad
 The broken windows theory for software development
 
 https://medium.com/@learnstuff.io/broken-window-theory-in-software-development-bef627a1ce99
-
-
-
