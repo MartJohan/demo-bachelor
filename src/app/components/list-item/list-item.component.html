@@ -1,17 +1,33 @@
 <div class="border" *ngIf="question">
-    <div class="row">
-        <div class="col text-center">
-            <h4 class="m-3 p-3">{{question.question}}</h4>
-        </div>
+  <div class="row">
+    <div class="col text-center">
+      <h4 class="m-3 p-3">{{ question.question }}</h4>
     </div>
-    <div class="row">   
-        <ng-container *ngFor="let answer of answers">
-            <div class="col-3 text-center"  *ngIf="question.incorrect_answers.length === 3">
-                <button class="btn btn-outline-primary mx-auto">{{answer}}</button>
-            </div>
-            <div class="col-6 text-center" *ngIf="question.incorrect_answers.length === 1">
-                <button class="btn btn-outline-primary mx-auto">{{answer}}</button>
-            </div>
-        </ng-container>
-    </div>
+  </div>
+  <div class="row">
+    <ng-container *ngFor="let answer of answers">
+      <div
+        class="col-3 text-center"
+        *ngIf="question.incorrect_answers.length === 3"
+      >
+        <button
+          class="btn btn-outline-primary mx-auto"
+          (click)="handleAnswer(answer)"
+        >
+          {{ answer }}
+        </button>
+      </div>
+      <div
+        class="col-6 text-center"
+        *ngIf="question.incorrect_answers.length === 1"
+      >
+        <button
+          class="btn btn-outline-primary mx-auto"
+          (click)="handleAnswer(answer)"
+        >
+          {{ answer }}
+        </button>
+      </div>
+    </ng-container>
+  </div>
 </div>
